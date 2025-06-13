@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+@import "tailwindcss";
+
+/* Layout */
+.calendar-container {
+  @apply max-w-6xl mx-auto p-6 bg-white dark:bg-zinc-900 rounded-xl shadow-xl;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  @apply flex justify-between items-center mb-6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button {
+  @apply p-2 rounded-full bg-gray-200 dark:bg-zinc-800 hover:bg-gray-300 dark:hover:bg-zinc-700 transition;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Days header */
+.days-header {
+  @apply grid grid-cols-7 gap-2 text-center font-semibold text-sm text-gray-600 dark:text-gray-300 mb-2;
 }
 
-.App-link {
-  color: #61dafb;
+/* Calendar Grid */
+.dates-grid {
+  @apply grid grid-cols-7 gap-2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.empty-cell {
+  @apply h-28 bg-gray-100 dark:bg-zinc-800 rounded-lg;
+}
+
+.day-cell {
+  @apply h-28 bg-white dark:bg-zinc-900 border dark:border-zinc-700 rounded-lg p-2 flex flex-col cursor-pointer shadow-sm hover:shadow-md transition;
+}
+
+.day-today {
+  @apply ring-2 ring-blue-400 ring-offset-2;
+}
+
+.day-selected {
+  @apply bg-blue-100 dark:bg-blue-900;
+}
+
+.day-other-month {
+  @apply text-gray-400 dark:text-zinc-500;
+}
+
+.day-number {
+  @apply text-right font-bold text-base text-gray-700 dark:text-gray-100;
+}
+
+.events-container {
+  @apply flex flex-col gap-1 mt-1 overflow-y-auto;
+}
+
+.event-item {
+  @apply text-xs rounded px-1.5 py-0.5 text-white font-medium truncate shadow-sm;
+}
+
+/* Selected date details */
+.selected-date-details {
+  @apply mt-6 p-6 border dark:border-zinc-700 rounded-xl bg-gray-50 dark:bg-zinc-800 shadow-lg;
+}
+
+.event-list {
+  @apply space-y-3 max-h-52 overflow-y-auto;
+}
+
+.event-list-item {
+  @apply flex items-center gap-4;
+}
+
+.event-color-dot {
+  @apply w-4 h-4 rounded-full shrink-0;
+}
+
+.no-events {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+/* Add Event Form */
+form {
+  @apply mt-8 p-6 border rounded-xl bg-gray-50 dark:bg-zinc-800 dark:border-zinc-700 shadow-md max-w-xl mx-auto;
+}
+
+form label {
+  @apply block mb-4;
+}
+
+form input,
+form select {
+  @apply w-full p-2 rounded border border-gray-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-sm dark:text-white;
+}
+
+form button {
+  @apply w-full mt-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition;
 }
